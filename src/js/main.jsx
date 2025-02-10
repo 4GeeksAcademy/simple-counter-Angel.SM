@@ -9,10 +9,34 @@ import "bootstrap"
 import '../styles/index.css'
 
 // components
-import Home from './components/Home';
+import SecondCounter from "./components/SecondCounter/secondCounter";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <Home/>
-  </React.StrictMode>,
-)
+let seconds = 0;
+
+
+const render = () => {
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+        <React.StrictMode>
+            <Home />
+        </React.StrictMode>
+    )
+}
+
+function Home() {
+    return (
+
+        <div >
+            <h2> <SecondCounter time={seconds} />
+            <button type="button" class="btn btn-light">Reset</button>
+            </h2>
+            
+        </div>)
+}
+
+setInterval(() => {
+    seconds++;
+    render()
+}, 1000);
+
+
