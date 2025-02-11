@@ -12,7 +12,7 @@ import '../styles/index.css'
 import SecondCounter from "./components/SecondCounter/secondCounter";
 
 let seconds = 0;
-
+let timer = true;
 
 const render = () => {
     const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -23,20 +23,27 @@ const render = () => {
     )
 }
 
+
 function Home() {
     return (
+        <>
+            <div className="Contador">
+                <h2> <SecondCounter time={seconds} />
 
-        <div >
-            <h2> <SecondCounter time={seconds} />
-            <button type="button" class="btn btn-light">Reset</button>
-            </h2>
-            
-        </div>)
+                    <button type="button" className="btn btn-secondary" onClick={() => seconds = 0}>Resetear</button>
+                    <button type="button" className="btn btn-secondary" onClick={() => timer= false }>Stop </button>
+                    <button type="button" className="btn btn-secondary" onClick={() => timer= true }>Start </button>
+                </h2>
+
+            </div>
+        </>)
 }
 
 setInterval(() => {
-    seconds++;
-    render()
+    if (timer) {
+        seconds++;
+        render()
+    }
 }, 1000);
 
 
