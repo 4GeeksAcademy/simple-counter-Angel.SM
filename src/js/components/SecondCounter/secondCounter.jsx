@@ -18,5 +18,4 @@ const SecondCounter = (props) => {
         </div>)
 }
 
-
 export default SecondCounter

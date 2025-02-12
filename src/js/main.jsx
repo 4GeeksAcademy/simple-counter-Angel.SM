@@ -7,7 +7,8 @@ import "bootstrap"
 
 // index.css'
 import '../styles/index.css'
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faRedo,faPause, faPlay } from '@fortawesome/free-solid-svg-icons';
 // components
 import SecondCounter from "./components/SecondCounter/secondCounter";
 
@@ -30,9 +31,16 @@ function Home() {
             <div className="Contador">
                 <h2> <SecondCounter time={seconds} />
 
-                    <button type="button" className="btn btn-secondary" onClick={() => seconds = 0}>Resetear</button>
-                    <button type="button" className="btn btn-secondary" onClick={() => timer= false }>Stop </button>
-                    <button type="button" className="btn btn-secondary" onClick={() => timer= true }>Start </button>
+                    <button type="button" className="btn btn-secondary" onClick={() => seconds = 0}>
+                        <FontAwesomeIcon icon={faRedo} />
+                    </button>
+                    <button type="button" className="btn btn-secondary" onClick={() => timer = false}>
+                        <FontAwesomeIcon icon={faPause} />
+                    </button>
+                    <button type="button" className="btn btn-secondary" onClick={() => timer = true}>
+                        <FontAwesomeIcon icon={faPlay} />
+                    </button>
+
                 </h2>
 
             </div>
@@ -45,5 +53,3 @@ setInterval(() => {
         render()
     }
 }, 1000);
-
-
